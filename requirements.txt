@@ -1,0 +1,3 @@
+slideio
+matplotlib
+tqdm
