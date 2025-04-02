@@ -6,6 +6,8 @@ import matplotlib.pyplot as plt
 import slideio
 
 
+IMG_SIZE = 1200
+
 def output_png_tiles(input_path: str, output_path: str):
     """
     Convert a whole slide image to a PNG tile.
@@ -23,7 +25,7 @@ def output_png_tiles(input_path: str, output_path: str):
         slide = slideio.open_slide(input_path, 'SVS')
         scene = slide.get_scene(0)
         # Objective used to capture the image
-        image = scene.read_block(size=(500, 0))
+        image = scene.read_block(size=(IMG_SIZE, 0))
         plt.imsave(output_path, image)
     except slideio.SlideioError as e:
         print(f'Failed to convert image {input_path} to {output_path} due to {e}')
